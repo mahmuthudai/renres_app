@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:renres_app/Screens/find_company.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> tabContents = [
     const Text("Content 1"), // İlk sekme içeriği
     const Text("Content 2"), // İkinci sekme içeriği
-    const Text("Content 3"), // Üçüncü sekme içeriği
+    const FindCompany(), // Üçüncü sekme içeriği
     const Text("Content 4"), // Dördüncü sekme içeriği
   ];
 
@@ -110,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Slide 3",
+                                "Firma",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 2
