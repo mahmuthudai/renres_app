@@ -2,7 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:renres_app/Screens/find_company.dart';
+import 'package:renres_app/Screens/checkout_form.dart';
+
+import 'find_company.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> tabContents = [
     const Text("Content 1"), // İlk sekme içeriği
-    const Text("Content 2"), // İkinci sekme içeriği
+    CheckoutForm(), // İkinci sekme içeriği
     const FindCompany(), // Üçüncü sekme içeriği
     const Text("Content 4"), // Dördüncü sekme içeriği
   ];
@@ -27,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
       appBar: AppBar(
         backgroundColor: Colors.white,
+        title: Text("Checkout Form"),
         elevation: 0,
         leading: IconButton(
           icon: Image.asset(
@@ -111,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Firma",
+                                "Slide 3",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 2
