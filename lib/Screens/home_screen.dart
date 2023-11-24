@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:renres_app/Screens/checkout_form.dart';
+import 'package:renres_app/Screens/cost_calculation.dart';
 
 import 'find_company.dart';
 
@@ -17,8 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int? _slide = 0;
 
   final List<Widget> tabContents = [
-    const Text("Content 1"), // İlk sekme içeriği
-    CheckoutForm(), // İkinci sekme içeriği
+    CheckoutForm(),// İlk sekme içeriği
+    const Calculations(), // İkinci sekme içeriği
     const FindCompany(), // Üçüncü sekme içeriği
     const Text("Content 4"), // Dördüncü sekme içeriği
   ];
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Slide 1",
+                                "YES",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 0
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Slide 2",
+                                "Maliyet",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 1
@@ -114,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Slide 3",
+                                "Firma",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 2
@@ -129,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 40,
                             child: Center(
                               child: Text(
-                                "Slide 4",
+                                "Mağaza",
                                 style: TextStyle(
                                   fontSize: 22,
                                   color: _slide == 3
