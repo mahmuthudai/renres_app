@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:renres_app/Screens/checkout_form.dart';
 import 'package:renres_app/Screens/cost_calculation.dart';
+import 'package:renres_app/Screens/store.dart';
 
 import 'find_company.dart';
 
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     CheckoutForm(),// İlk sekme içeriği
     const Calculations(), // İkinci sekme içeriği
     const FindCompany(), // Üçüncü sekme içeriği
-    const Text("Content 4"), // Dördüncü sekme içeriği
+    const ProductCard(), // Dördüncü sekme içeriği
   ];
 
   @override
