@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Screens/entry_point.dart';
-import '../location.dart';
 import 'ForgorPassword.dart';
 import 'RegisterPage.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -52,7 +51,23 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
     _animatedController.forward();
   }
 
+  Future<void> _askPermissionAndNavigate(BuildContext context) async {
+    var status = await Permission.location.request();
 
+    if (status.isGranted) {
+      // İzin verildi, bir sonraki sayfaya yönlendir
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => EntryPoint()),
+      );
+    } else {
+      // İzin reddedildi veya verilmedi, aynı sayfada kal
+      // Burada kullanıcıya bir uyarı da gösterebilirsiniz
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Konum izni reddedildi')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +144,7 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                         if (value!.isEmpty || value.length < 8) {
                           return 'Please Enter a valid password';
                         }
+                        return null;
                       },
                       controller: _passwordController,
                       style: TextStyle(color: Colors.black87),
@@ -192,13 +208,7 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 25),
                     child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Konum()),
-                        );
-                      },
+                      onTap: () => _askPermissionAndNavigate(context),
                       child: Container(
                         width: 300,
                         height: 45,
