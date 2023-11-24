@@ -1,9 +1,9 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Screens/entry_point.dart';
+import '../location.dart';
 import 'ForgorPassword.dart';
 import 'RegisterPage.dart';
 
@@ -196,7 +196,7 @@ class _SignInScreenState extends State<SignInScreen> with SingleTickerProviderSt
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const EntryPoint()),
+                              builder: (context) => const Konum()),
                         );
                       },
                       child: Container(
